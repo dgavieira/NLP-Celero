@@ -11,7 +11,6 @@ def read_train_neg():
     concatenated_df = pd.concat(df_from_each_file, ignore_index=True, axis=0)
 
     # print(concatenated_df.head(10))
-
     concatenated_df.to_csv('train_neg.csv', index=False)
 
 def read_train_pos():
@@ -20,9 +19,8 @@ def read_train_pos():
 
     df_from_each_file = (pd.read_csv(f, encoding='utf8', delimiter="\t") for f in all_files)
     concatenated_df = pd.concat(df_from_each_file, ignore_index=True, axis=0)
-
+    
     # print(concatenated_df.head(10))
-
     concatenated_df.to_csv('train_pos.csv', index=False)
 
 def read_train_unsup():
@@ -32,6 +30,6 @@ def read_train_unsup():
     df_from_each_file = (pd.read_csv(f, encoding='utf8', delimiter="\t") for f in all_files)
     concatenated_df = pd.concat(df_from_each_file, ignore_index=True, axis=0)
 
-    # print(concatenated_df.head(10))
 
+    # print(concatenated_df.head(10))
     concatenated_df.to_csv('train_unsup.csv', index=False)
