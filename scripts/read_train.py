@@ -8,7 +8,7 @@ def read_train_neg():
     all_files = glob.glob(os.path.join(path, "*.txt"))
 
     df_from_each_file = (pd.read_csv(f, encoding='utf8', delimiter="\t") for f in all_files)
-    concatenated_df = pd.concat(df_from_each_file, ignore_index=True, axis=1)
+    concatenated_df = pd.concat(df_from_each_file, ignore_index=True, axis=0)
 
     # print(concatenated_df.head(10))
 
@@ -19,7 +19,7 @@ def read_train_pos():
     all_files = glob.glob(os.path.join(path, "*.txt"))
 
     df_from_each_file = (pd.read_csv(f, encoding='utf8', delimiter="\t") for f in all_files)
-    concatenated_df = pd.concat(df_from_each_file, ignore_index=True, axis=1)
+    concatenated_df = pd.concat(df_from_each_file, ignore_index=True, axis=0)
 
     # print(concatenated_df.head(10))
 
@@ -30,7 +30,7 @@ def read_train_unsup():
     all_files = glob.glob(os.path.join(path, "*.txt"))
 
     df_from_each_file = (pd.read_csv(f, encoding='utf8', delimiter="\t") for f in all_files)
-    concatenated_df = pd.concat(df_from_each_file, ignore_index=True, axis=1)
+    concatenated_df = pd.concat(df_from_each_file, ignore_index=True, axis=0)
 
     # print(concatenated_df.head(10))
 
