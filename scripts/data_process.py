@@ -4,7 +4,6 @@ import nltk
 from nltk import *
 from nltk.stem.snowball import SnowballStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
-from nltk import ngrams
 
 
 def acrescenta_classificacao(df):
@@ -57,10 +56,11 @@ def remove_pontuacao(df):
         frase_processada.append(' '.join(nova_frase))
 
     df['punctuation'] = frase_processada
+    '''
     df['punctuation'] = df['punctuation'].str.replace(r' .. ', ' ')
     df['punctuation'] = df['punctuation'].str.replace(r' ... ', ' ')
     df['punctuation'] = df['punctuation'].str.replace(r' .... ', ' ')
-
+    '''
     return df
 
 
@@ -87,7 +87,3 @@ def stemming(df):
 
     return df
 
-def tfidf_tokenize(df):
-    tfidf = TfidfVectorizer(lowercase=False, max_features=50, ngram_range=(1,2))
-    tfidf_tratados = tfidf.fit_transform(df['stemming'])
-    return tfidf_tratados
